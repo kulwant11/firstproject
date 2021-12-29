@@ -1,0 +1,121 @@
+
+{% extends 'student/base.html ' %}
+{% load static %}
+
+{% block contentbody %}
+<div class="col-12">
+
+<h1>New Register form</h1>
+<form method="post">
+    {% csrf_token %} 
+    <div class="form-group">
+        <label for="email">Name:</label>
+        <input type="text" class="form-control" name="na" placeholder="Enter Name" id="na">
+      </div>
+    <div class="form-group">
+      <label for="email">Email address:</label>
+      <input type="email" class="form-control" name="email" placeholder="Enter email" id="email">
+    </div>
+    <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" name="pass" placeholder="Enter password" id="pwd">
+      </div>
+    <div class="form-group">
+        <label for="sel1">Select list:</label>
+        <select class="form-control" id="sel1" name="sell">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </div>
+    
+
+    <div class="form-group form-check">
+        <label class="form-radio-label">
+            <input  class="form-radio-input" type="radio" name="radi" value="male">Male
+            <input  class="form-radio-input" type="radio" name="radi" value="female">Female
+        </label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" value="10th" name="10">10th</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" value="12th" name="12">12th</label>
+      </div>
+      <div class="checkbox disabled">
+        <label><input type="checkbox" value="BA" name="ba">B.A</label>
+      </div>
+
+    <div class="form-group">
+        <label for="comment">Comment:</label>
+        <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+      </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form><br>
+  </div>
+
+  <div><!--print key of dictornary in if block-->
+    {% if name %}
+    Name:{{name}}<br>
+    {% else %}
+    <p>Name not found</p>
+    {% endif %}
+
+    {% if Email %}
+    Email:{{Email}}<br>
+    {% else %}
+    <p>email not found</p>
+    {% endif %}
+
+    {% if password %}
+    Password:{{password}}<br>
+    {% endif %}
+
+    {% if DOB %}
+    DOB:{{DOB}}<br>
+    {% endif %}
+
+    {% if Gender %}
+    Gender:{{Gender}}<br>
+    {% endif %}
+
+    {% if checkbox %}
+    Check:{{checkbox}}<br>
+    {% endif %}
+
+    {% if checkbox1 %}
+    Check1:{{checkbox1}}<br>
+    {% endif %}
+
+    {% if checkbox2 %}
+    Check2:{{checkbox2}}<br>
+    {% endif %}
+    
+    {% if comment %}
+    COMMENT:{{comment}}<br>
+    {% endif %}
+  </div>
+
+  <!--to print my list
+  <div>
+    {{my_key}}
+  </div>-->
+
+  <!--to print mylist using for loop
+  <div>
+    {% for y in my_key %}
+    {{y}}<br>
+    {% endfor %}
+  </div>-->
+
+
+  <!--to print dictionary value with in dictonary
+  <div>
+ Name: {{mydata1.name}}<br>
+ passoword: {{mydata1.password}}
+
+  </div>-->
+
+</div>
+{% endblock %}
